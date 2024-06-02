@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import CartModal from '../CartModal/CartModal';
 
 const Navigation = () => {
+  const [showCart, setShowCart] = useState(false);
+  const handleShowCart = () => setShowCart(true);
+  const handleCloseCart = () => setShowCart(false);
+
   return (
     <Navbar bg="dark" variant="dark">
         <Container>
@@ -11,6 +18,12 @@ const Navigation = () => {
             <Nav.Link href="#store">Store</Nav.Link>
             <Nav.Link href="#about">About</Nav.Link>
           </Nav>
+          <Nav>
+            <Nav.Link onClick={handleShowCart}>
+              <FontAwesomeIcon icon={faShoppingCart} />
+            </Nav.Link>
+          </Nav>
+          <CartModal show={showCart} handleClose={handleCloseCart}/>
         </Container>
       </Navbar>
   )
