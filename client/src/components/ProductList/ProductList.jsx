@@ -45,9 +45,7 @@ const ProductList = () => {
         {productsArr.slice(0, 4).map((product, index) => (
           <Col key={index} sm={12} md={6} lg={4} xl={3}>
             <Product 
-              title={product.title} 
-              price={product.price} 
-              imageUrl={product.imageUrl} 
+              product ={product}
             />
           </Col>
         ))}
@@ -57,9 +55,7 @@ const ProductList = () => {
         {productsArr.slice(4).map((product, index) => (
           <Col key={index} sm={12} md={6} lg={4} xl={3}>
             <Product 
-              title={product.title} 
-              price={product.price} 
-              imageUrl={product.imageUrl} 
+             product = {product}
             />
           </Col>
         ))}

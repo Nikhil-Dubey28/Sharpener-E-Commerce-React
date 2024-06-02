@@ -4,12 +4,14 @@ import Navigation from './components/Navbar/Navigation'
 import ProductList from './components/ProductList/ProductList'
 import { Navbar, Container, Nav } from 'react-bootstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
+import { CartProvider } from './context/CartContext';
 
 
 function App() {
 
 
   return (
+    <CartProvider>
     <>
     <Navigation />
     <ProductList />
@@ -19,6 +21,7 @@ function App() {
         </Container>
       </footer>
     </>
+    </CartProvider>
   )
 }
 
