@@ -5,6 +5,10 @@ import ProductList from './components/ProductList/ProductList'
 import { Navbar, Container, Nav } from 'react-bootstrap';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import { CartProvider } from './context/CartContext';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+import Home from './Pages/Home/Home';
+import Store from './Pages/Store/Store';
+import About from './Pages/About/About';
 
 
 function App() {
@@ -12,15 +16,18 @@ function App() {
 
   return (
     <CartProvider>
-    <>
+   
+    <Router>
     <Navigation />
-    <ProductList />
-    <footer className="bg-primary text-white text-center py-3 mt-4">
-        <Container>
-          <p>&copy; 2024 The Generics</p>
-        </Container>
-      </footer>
-    </>
+    <Routes>
+    <Route path='/' element={<Home />} />
+    <Route path='/store' element={<Store />} />
+    <Route path='/about' element={<About />} />
+
+    </Routes>
+   
+   
+    </Router>
     </CartProvider>
   )
 }
